@@ -1,0 +1,23 @@
+- hosts: localhost
+  pre_tasks:
+    - name: Update Apt
+      become: true
+      apt:
+        update_cache: true
+      tags:
+        - zsh
+        - node
+  tasks:
+    - name: Decrypt testfile
+      shell: ansible-vault decrypt testfile
+      tags:
+        - testfiles
+    - name: Copy & decrypt testfile
+      copy:
+        src: ./testfile
+        dest: ./testfile.decrypt
+        mode: 0644
+      tags:
+        - testfile
+    - include: tasks/zsh.yml
+    - include: tasks/node.yml

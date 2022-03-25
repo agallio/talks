@@ -1,0 +1,9 @@
+- name: Install nvm
+  shell: curl -o- https://raw.githubusercontent.com/nvm-sh/nvm/v0.39.0/install.sh | bash
+  tags:
+    - node
+- name: Install node 14
+  become: true
+  shell: /bin/bash -c "source ~/.nvm/nvm.sh && nvm install 14"
+  tags:
+    - node
