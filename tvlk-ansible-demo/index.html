@@ -1,0 +1,56 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+
+    <title>reveal.js - Markdown Example</title>
+
+    <link rel="stylesheet" href="../dist/reveal.css" />
+    <link rel="stylesheet" href="../dist/theme/night.css" id="theme" />
+
+    <link rel="stylesheet" href="../plugin/highlight/monokai.css" />
+  </head>
+
+  <body>
+    <div class="reveal">
+      <div class="slides">
+        <!-- Use external markdown resource, separate slides by three newlines; vertical slides by two newlines -->
+        <section data-markdown="/slides/intro.md"></section>
+
+        <section>
+          <section data-auto-animate>
+            <img src="/images/ansible-white.png" width="350" />
+          </section>
+          <section data-auto-animate>
+            <div class="r-hstack">
+              <img src="/images/ansible-white.png" width="350" />
+              <img src="/images/kubernetes.png" width="400" />
+            </div>
+          </section>
+        </section>
+
+        <section
+          data-markdown="/slides/ansible.md"
+          data-separator="^\n---\n$"
+          data-separator-vertical="^\n--\n$"
+        ></section>
+      </div>
+    </div>
+
+    <script src="../dist/reveal.js"></script>
+    <script src="../plugin/markdown/markdown.js"></script>
+    <script src="../plugin/highlight/highlight.js"></script>
+    <script src="../plugin/notes/notes.js"></script>
+
+    <script>
+      Reveal.initialize({
+        controls: true,
+        progress: true,
+        history: true,
+        center: true,
+
+        plugins: [RevealMarkdown, RevealHighlight, RevealNotes],
+      });
+    </script>
+  </body>
+</html>
